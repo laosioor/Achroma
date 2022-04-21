@@ -1,0 +1,26 @@
+* {
+    font-family: -apple-system, BlinkMacSystemFont, "segoe ui", roboto, oxygen, ubuntu, cantarell, "fira sans", "droid sans", "helvetica neue", Arial, sans-serif;
+}
+
+.Registro {
+    margin: 100px auto;
+    text-align: center;
+    vertical-align: middle;
+    background-color: #ffffff;
+    position: relative;
+    min-height: 480px;
+    min-width: 480px;
+    width: 480px;
+    z-index: 3;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);   
+    background: #ffffff; 
+}
+
+.CEmail, .Senha, .CSenha, .Usuario {
+    line-height: 0.15;
+}
+
+.Confirmar {
+    padding: 10px 0 10px 0;
+    line-height: 3.5;
+}
