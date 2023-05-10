@@ -1,0 +1,64 @@
+/* Quadrados */
+
+.container-fluid {
+    display: grid;
+    padding: 100px;
+    width: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* 130px, 1fr aqui que muda o tamanho da imagem :)*/
+    align-content: center;
+    gap: 1rem;
+}
+
+.container-fluid > div > img {
+    border-radius: 10px;
+    max-width: 100%;
+}
+
+.chroma > img:hover {
+    cursor: pointer;
+    outline: 2px rgb(167, 20, 20) solid;
+}
+.quadrado-grande{
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+.retanguluzao{
+    grid-column: span 3;
+    grid-row: span 2;
+}
+.ues {
+    position: fixed;
+    left: 90%; /* 113rem */
+    top: 85%; /* 50rem */
+}
+.ues > .btn {
+    font-size: 30px;
+    border-radius: 100%;
+    height: 5rem;
+    width: 5rem; 
+    background-color: #40304e;
+    border-color: transparent;
+}
+
+.ues > .btn:hover {
+    background-color: #ff4b79;
+    color: #222122;
+    border-color: transparent;
+}
+
+
+#postChroma:disabled {
+    background-color: rgb(199, 199, 199);
+}
+
+#postedImg {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+#postedImg img {
+  width: 100%;
+  height: 100%;
+}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <link rel="icon" href="/imagens/bolinha.ico">
+    <link rel="stylesheet" href="/global.css">
+    <link rel="stylesheet" href="/login.css">
+    <meta charset="UTF-8">
+    <title>Achroma</title>
+</head>
+<body>
+    <ul class="circles">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>                
+    </ul>
+    <div class="Login"> 
+        
+        <div class="img-container">
+            <img src="/imagens/achromaLogo1.png">
+        </div>
+            
+            
+            
+        <form action="#" method="POST">
+        <!-- MUDA DE <p> PRA <label> cacetaiada -->
+        <div class="Usuario">
+            <p>Nome de Usuário/Endereço de Email</p>
+            <input type="text" class="text-input" name="Usuario" required>
+        </div>
+
+        <div class="Senha">
+            <p>Senha</p>
+            <input type="password" class="text-input" name="Senha" required> 
+        </div>
+
+        <% errors.forEach(function(error) { %>
+            <% if (error != '') %>
+        <div class="Errors">
+            <p><%= error %></p>
+        </div>
+        <% }) %> 
+        
+        <div class="Entrar">
+            <input type="submit" name="Entrar" value="Entrar">
+            </form>  
+            <p>É novo por aqui? Crie sua <a href="/register">conta</a></p>
+        </div>
+        
+
+    </div> 
+
+</body>
+</html>

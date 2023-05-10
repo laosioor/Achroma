@@ -1,0 +1,80 @@
+@import url('http://fonts.cdnfonts.com/css/montserrat');
+
+HTML CSS 
+
+Result
+Skip Results Iframe
+
+EDIT ON
+
+.container {
+  max-width: 1440px;
+  width: 90%;
+  margin: auto;
+}
+
+.navbar {
+  font-family: 'Montserrat', sans-serif;
+  background-color: white;
+  position: absolute;
+  min-height: 48px;
+  width: 100%;
+  box-shadow: 0 1px 4px rgb(146 161 176 / 15%);
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: left;
+  height: 62px;
+}
+
+.navbar .nav-container li {
+  display: flex;
+  position: relative;
+  list-style: none;
+  right: min(50px, 3%);
+}
+
+.navbar .nav-container a {
+  text-decoration: none;
+  color: #0e2431;
+  font-weight: 500;
+  font-size: 1.2rem;
+  padding: 0.7rem;
+  
+}
+
+.navbar .nav-container a:hover{
+    font-weight: bold;
+}
+
+.nav-container {
+  display: block;
+  position: relative;
+  height: 60px;
+}
+
+.logo {
+    position: absolute;
+    right: 5px;
+    bottom: 2px;
+    top: 2px;
+}
+
+.imgLogo {
+    min-width: 120px;
+    width: 120px;
+}
+
+/* The sticky class is added to the navbar with JS when it reaches its scroll position */
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+/* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
+.sticky + .content {
+  padding-top: 60px;
+}

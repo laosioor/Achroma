@@ -1,0 +1,28 @@
+{
+  "name": "achroma",
+  "version": "0.0.1",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "achroma": "nodemon app.js"
+  },
+  "author": "laosioor & CakeDev",
+  "license": "ISC",
+  "dependencies": {
+    "-": "^0.0.1",
+    "body-parser": "^1.20.0",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "ejs": "^3.1.7",
+    "express": "^4.18.1",
+    "express-fileupload": "^1.4.0",
+    "express-formidable": "^1.2.0",
+    "fs": "^0.0.1-security",
+    "jsonwebtoken": "^8.5.1",
+    "multer": "^1.4.5-lts.1",
+    "mysql2": "^2.3.3",
+    "nodemon": "^2.0.15",
+    "save": "^2.5.0"
+  }
+}

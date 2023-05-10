@@ -1,0 +1,37 @@
+.formFoda {
+    padding: 100px 25%;
+}
+
+textarea {
+    resize: none;
+}
+
+input[type="file"]{
+    display: none;
+}
+
+
+#camera {
+    z-index: 3;
+    width: 3rem;
+    position: absolute;
+}
+
+#postedImg img {
+    object-fit: cover;
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
+    z-index: -1;
+    position: relative;
+}
+
+#camera {
+    margin: 50px;
+    opacity: 70%;
+    
+}
+
+#camera:hover {
+    opacity: 100%;
+}

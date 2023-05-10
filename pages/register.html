@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <link rel="icon" href="/imagens/bolinha.ico">
+    <link rel="stylesheet" href="/global.css">
+    <link rel="stylesheet" href="/register.css">
+    <meta charset="UTF-8">
+    <title>Achroma</title>
+</head>
+<body>    
+    <ul class="circles">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>                
+    </ul>
+    <div class="Registro">   
+        <div class="img-container">
+            <img src="/imagens/achromaLogo1.png">
+        </div>
+
+        <form action="#" method="POST">
+
+        <div class="CEmail">
+            <p>Endereço de Email</p>
+            <input type="email" class="text-input" name="NEmail" required>
+        </div>
+
+        <div class="Usuario">
+            <p>Nome de Usuário</p>
+            <input type="text" class="text-input" name="NUsuario" required>
+        </div>
+
+        <div class="Senha">
+            <p>Senha</p>
+            <input type="password" class="text-input" name="NSenha" required> 
+        </div>
+
+        <div class="CSenha">
+            <p>Confirmar Senha</p>
+            <input type="password" class="text-input" name="NCSenha" required>
+        </div>
+        
+        <% errors.forEach(function(error) { %>
+            <% if (error != '') %>
+        <div class="Errors">
+            <p><%= error %></p>
+        </div>
+        <% }) %> 
+
+        <div class="Confirmar">
+            <input type="submit" name="NConfirmar" value="Criar Conta">
+            </form>  
+            <p>Já está cadastrado? Faça <a href="/login">Login</a></p>
+        </div>
+
+        
+    </div>        
+
+</body>
+</html>
