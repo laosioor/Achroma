@@ -76,10 +76,8 @@ module.exports = ( function() {
                 httpOnly: true
             });
 
-            //res.send({userdata, token: config.generateToken({id: userID})});
             res.redirect("/home");
             return router;
-            // redireciona pra home *mudar isso em breve*
             
             
         }

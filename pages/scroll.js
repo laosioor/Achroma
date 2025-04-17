@@ -45,15 +45,6 @@ function loadImages(numImages = 40){
 }
 
 loadImages()
-
-// receber valores do css
-// const element = document.querySelector('.quadradinho')
-// const style = getComputedStyle(element)
-// const color = style.width;
-// console.log(color);
-
-// Detecta se o usuaria chegou no final do scroll, e caso seja chama a função de mostrar imagens
-
 window.addEventListener('scroll', () => {
     if(window.scrollY + window.innerHeight >= document.documentElement.scrollHeight) {
         loadImages()

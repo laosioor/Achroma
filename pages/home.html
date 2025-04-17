@@ -1,263 +1,181 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/nav.css">
-    <link rel="stylesheet" href="/home.css">
-    <link rel="icon" href="/imagens/bolinha.ico">
-    <title>Achroma</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/nav.css">
+  <link rel="stylesheet" href="/home.css">
+  <link rel="icon" href="/imagens/bolinha.ico">
+  <title>Achroma</title>
 </head>
+
 <body>
   <nav>
     <div class="navbar" id="navbar">
       <div class="container nav-container">
-          <li><a href="<%= userLink %>">Perfil</a>
-          <a href="/signout">Sair</a></li>
-            <div class="logo">
-                <a href="/home"><img class="imgLogo" src="/imagens/achromaLogo1.png"></a>
-            </div>
+        <li><a href="<%= userLink %>">Perfil</a>
+          <a href="/signout">Sair</a>
+        </li>
+        <div class="logo">
+          <a href="/home"><img class="imgLogo" src="/imagens/achromaLogo1.png"></a>
         </div>
       </div>
+    </div>
   </nav>
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Postar Chroma</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Postar Chroma</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
 
 
-      <div class="modal-body">
-        <form action="/home/<%= username %>&<%= number %>" method="post" enctype="multipart/form-data">
-          <div class="form-group">
-            <label for="imgInp">Selecione uma imagem para postar:</label>
-            <input type="file" class="form-control-file" id="imgInp" name="uploadedChroma"/>
-            <div id="postedImg"><img id="blah"/></div>
-          </div>
-        
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-        <button type="submit" class="btn btn-primary" id="postChroma" disabled>Postar Chroma</button>
-      </form>
-        <!--<input type="submit" class="btn btn-primary" id="postChroma" value="Postar Chroma"/>-->
+        <div class="modal-body">
+          <form action="/home/<%= username %>&<%= number %>" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+              <label for="imgInp">Selecione uma imagem para postar:</label>
+              <input type="file" class="form-control-file" id="imgInp" name="uploadedChroma" />
+              <div id="postedImg"><img id="blah" /></div>
+            </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+          <button type="submit" class="btn btn-primary" id="postChroma" disabled>Postar Chroma</button>
+          </form>
+        </div>
       </div>
     </div>
   </div>
-</div>
-      
 
-<div class="ues">
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-    +
-  </button>
-</div>
-    <div class="container-fluid">
-      <% for (let i = 0; i < chromas.length; i++) { %>
+
+  <div class="ues">
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+      +
+    </button>
+  </div>
+  <div class="container-fluid">
+    <% for (let i=0; i < chromas.length; i++) { %>
       <div class="chroma">
-        <img src="/chromas/<%= chromas[i][0] %> <%= chromas[i][1] %>.jpg" onClick="window.location='/profile/<%= chromas[i][0] %>'"> 
-      </div> 
+        <img src="/chromas/<%= chromas[i][0] %> <%= chromas[i][1] %>.jpg"
+          onClick="window.location='/profile/<%= chromas[i][0] %>'">
+      </div>
       <% } %>
-    </div>
-
-    
-<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.js"></script>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
-<script>
-let chromas = document.getElementsByClassName("container-fluid");
-let chroma = chromas[0].getElementsByTagName("img");
-for (let i = 0; i < chroma.length; i++){
-  if (chroma[i].width != chroma[i].height) {
-    chroma[i].classList += "retanguluzao";
-  } else {
-    chroma[i].classList += "quadrado-grande";
-  }
-}
-
-window.onload = function() {
-  
+  </div>
 
 
-  imgInp.value = null;
-  imgInp.files = null;
-  file = null;
-  postChroma.disabled = true;
-}
-      // When the user scrolls the page, execute myFunction
-window.onscroll = function() {myFunction()};
+  <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
 
-// Get the navbar
-var navbar = document.getElementById("navbar");
+  <script>
+    let chromas = document.getElementsByClassName("container-fluid");
+    let chroma = chromas[0].getElementsByTagName("img");
+    for (let i = 0; i < chroma.length; i++) {
+      if (chroma[i].width != chroma[i].height) {
+        chroma[i].classList += "retanguluzao";
+      } else {
+        chroma[i].classList += "quadrado-grande";
+      }
+    }
+
+    window.onload = function () {
 
 
-// Get the offset position of the navbar
-var sticky = navbar.offsetTop;
 
-// Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
-function myFunction() {
-  if (window.pageYOffset >= sticky) {
-    navbar.classList.add("sticky");
-  } else {
-    navbar.classList.remove("sticky");
-  }
-}
+      imgInp.value = null;
+      imgInp.files = null;
+      file = null;
+      postChroma.disabled = true;
+    }
+    window.onscroll = function () {myFunction()};
 
-imgInp.onchange = evt => {
-  const [file] = imgInp.files
-  if (file) {
-    var fileName = document.getElementById("imgInp").value;
+    var navbar = document.getElementById("navbar");
+
+
+    var sticky = navbar.offsetTop;
+
+    function myFunction() {
+      if (window.pageYOffset >= sticky) {
+        navbar.classList.add("sticky");
+      } else {
+        navbar.classList.remove("sticky");
+      }
+    }
+
+    imgInp.onchange = evt => {
+      const [file] = imgInp.files
+      if (file) {
+        var fileName = document.getElementById("imgInp").value;
         var idxDot = fileName.lastIndexOf(".") + 1;
         var extFile = fileName.substr(idxDot, fileName.length).toLowerCase();
-        if (extFile=="jpg" || extFile=="jpeg" || extFile=="png" || extFile=="jfif"){
+        if (extFile == "jpg" || extFile == "jpeg" || extFile == "png" || extFile == "jfif") {
           blah.src = URL.createObjectURL(file)
           postChroma.disabled = false;
-        }else{
-            alert("Only jpg/jpeg and png files are allowed!");
-            blah.src = "";
-            imgInp.value = null;
-            imgInp.files = null;
-            file = null;
-            postChroma.disabled = true;
-        }   
-    } 
-}
-
-/*function uploadImage() {
-  var _URL = window.URL || window.webkitURL;
-
-  $("#exampleFormControlFile1").change(function(e) {
-      var image, file;
-      if ((file = this.files[0])) {
-          image = new Image();
-          image.onload = function() {
-          src = this.src;
-          $('#postedImg').html('<img src="'+ src +'"></div>');
-          e.preventDefault();
+        } else {
+          alert("Only jpg/jpeg and png files are allowed!");
+          blah.src = "";
+          imgInp.value = null;
+          imgInp.files = null;
+          file = null;
+          postChroma.disabled = true;
         }
-          };
-          image.src = _URL.createObjectURL(file);
-  });
-}*/
+      }
+    }
 
-function checkDimension() {
-    //Get reference of File.
-    var fileUpload = document.getElementById("exampleFormControlFile1");
-    var defaultPic = "/imagens/defaultProfilePic.jpg";
-    imgInp.onchange = evt => {
-      //Check whether the file is valid Image.
-      var regex = new RegExp("([a-zA-Z0-9\s_\\.\-:])+(.jpg|.png|.gif)$");
-      if (regex.test(fileUpload.value.toLowerCase())) {
+    function checkDimension() {
+      var fileUpload = document.getElementById("exampleFormControlFile1");
+      var defaultPic = "/imagens/defaultProfilePic.jpg";
+      imgInp.onchange = evt => {
+        var regex = new RegExp("([a-zA-Z0-9\s_\\.\-:])+(.jpg|.png|.gif)$");
+        if (regex.test(fileUpload.value.toLowerCase())) {
 
-          //Check whether HTML5 is supported.
           if (typeof (fileUpload.files) != "undefined") {
-              //Initiate the FileReader object.
-              var reader = new FileReader();
-              //Read the contents of Image File.
-              reader.readAsDataURL(fileUpload.files[0]);
-              reader.onload = function (e) {
-                  //Initiate the JavaScript Image object.
-                  var image = new Image();
+            var reader = new FileReader();
+            reader.readAsDataURL(fileUpload.files[0]);
+            reader.onload = function (e) {
+              var image = new Image();
 
-                  //Set the Base64 string return from FileReader as source.
-                  image.src = e.target.result;
-                        
-                  //Validate the File Height and Width.
-                  image.onload = function () {
-                      var height = this.height;
-                      var width = this.width;
-                      document.getElementById("width").innerHTML="Width = "+width;
-                      document.getElementById("height").innerHTML="Height = "+height;
-                  };
-              }
+              image.src = e.target.result;
+
+              image.onload = function () {
+                var height = this.height;
+                var width = this.width;
+                document.getElementById("width").innerHTML = "Width = " + width;
+                document.getElementById("height").innerHTML = "Height = " + height;
+              };
+            }
           } else {
-              document.getElementById("error").innerHTML="This browser does not support HTML5.";
-              imgInp.value = null;
-              blah.src = defaultPic;
-              return false;
+            document.getElementById("error").innerHTML = "This browser does not support HTML5.";
+            imgInp.value = null;
+            blah.src = defaultPic;
+            return false;
           }
-      } else {
-          document.getElementById("error").innerHTML="Please select a valid Image file.";
+        } else {
+          document.getElementById("error").innerHTML = "Please select a valid Image file.";
           imgInp.value = null;
           blah.src = defaultPic;
           return false;
+        }
       }
     }
-  }
 
-/*
-// Gerador de imagens aleatórias infinitas em uma grid (futuramente será substituido por informações do BD e não será aleatório)
+  </script>
 
-// Detecta onde esta a classe que sera editada
-const container = document.querySelector('.container-fluid')
-
-//                Str com o link das API 
-// depois do "random=" fica o número identificando a imagem
-// os dois números determinam a resolução (/300/300)
-let URL = "https://picsum.photos/300/300.jpg?random="
-
-// Função que gera um número aleatório para colocar no link
-function getRandNum(){
-    let num = Math.floor(Math.random() * 10000);
-    return num
-}
-
-
-
-
-// Função que mostra as imagens
-function loadImages(numImages = 40){
-    let i = 0;
-    while (i < numImages){
-        const img = document.createElement('img')
-        const div = document.createElement('div')
-        let rand = getRandNum()
-        div.classList.add("box") 
-        if (rand%10==0) {
-            URL = "https://picsum.photos/626/626.jpg?random="
-                div.classList.add("quadrado-grande")
-        } else if (rand%15==0) {
-            URL = "https://picsum.photos/939/626.jpg?random="
-            div.classList.add("retanguluzao")
-
-        } else {
-            URL = "https://picsum.photos/300/300.jpg?random="
-            div.classList.add("quadradinho")
-        }
-        img.src = `${URL}${rand}`
-        container.appendChild(div)
-        div.appendChild(img)
-        i++
-    }
-
-}
-
-loadImages()
-
-// receber valores do css
-// const element = document.querySelector('.quadradinho')
-// const style = getComputedStyle(element)
-// const color = style.width;
-// console.log(color);
-
-// Detecta se o usuaria chegou no final do scroll, e caso seja chama a função de mostrar imagens
-
-window.addEventListener('scroll', () => {
-    if(window.scrollY + window.innerHeight >= document.documentElement.scrollHeight) {
-        loadImages()
-    }
-})
-
-*/
-    </script>
-    
 </body>
+
 </html>

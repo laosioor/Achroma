@@ -2,7 +2,7 @@ const config = require('../modules/config');
 const router = require("./router");
 const auth = require('../middlewares/auth');
 const chromaReader = require('../modules/chromas');
-const multer  = require('multer'); // include multer
+const multer  = require('multer');
 
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {

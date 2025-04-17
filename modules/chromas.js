@@ -75,7 +75,7 @@ module.exports = {
         }
     },
 
-    returnNumbers: function(array) { // pra separar os númerozinho dos nome de usuário
+    returnNumbers: function(array) {
         arrayNumbers = [];
         for (i = 0; i < array.length; i++) {
             arrayNumbers.push(array[i][1]);
